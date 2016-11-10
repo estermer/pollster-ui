@@ -24,7 +24,7 @@
     var getAllPolls = function(){
       $http.get(`${rootUrl}/polls`)
         .then(function(response){
-          console.log(response.data.status);
+          console.log(response.data);
           self.polls = response.data.polls;
         })
         .catch(function(err){

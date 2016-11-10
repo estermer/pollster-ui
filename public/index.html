@@ -37,5 +37,28 @@
       </div>
     </div>
 
+    <!-- polls will be displayed here -->
+    <div id="show-polls" ng-repeat="poll in main.polls">
+      <div class="poll">
+        <h3>{{poll.title}}</h3>
+        <h5>{{poll.question}}</h5>
+        <div class="answers" ng-repeat="answer in poll.answers">
+          <label for="{{answer.id}}">{{answer.text}}</label>
+          <input type="radio" name="name" value="{{answer.id}}"><br>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
