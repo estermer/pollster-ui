@@ -67,6 +67,7 @@
     };
 
     self.recordResponse = function(answerId, pollId){
+      console.log(answerId);
       $http.post(`${rootUrl}/answers/${answerId}`)
         .then(function(response){
           console.log(response.data);

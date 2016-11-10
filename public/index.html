@@ -42,10 +42,13 @@
       <div class="poll">
         <h3>{{poll.title}}</h3>
         <h5>{{poll.question}}</h5>
-        <form ng-submit="main.recordResponse(response.id, poll.id)">
-          <span class="answers" ng-repeat="answer in poll.answers">
-            <label for="{{answer.id}}">{{answer.text}}</label>
-            <input type="radio" name="name" ng-model="response.id" value="{{answer.id}}"><br>
+        <form ng-submit="main.recordResponse(response, poll.id)">
+          <span class="answers" >
+            <label ng-repeat="answer in poll.answers">
+              <input type="radio" ng-model="$parent.response" ng-value="answer.id">
+              {{answer.text}}
+              <br>
+            </label>
           </span>
           <span id="{{poll.id}}">
             <button type="submit">RECORD YOUR RESPONSE</button>
