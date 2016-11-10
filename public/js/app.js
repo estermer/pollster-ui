@@ -52,6 +52,7 @@
       //then send them to the api as the array
       $http.post(`${rootUrl}/polls/${self.newPoll.id}/answers`, {answers: answers})
         .then(function(response){
+          getAllPolls();
           self.pollCreated = false;
         })
         .catch(function(err){
