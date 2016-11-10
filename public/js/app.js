@@ -67,14 +67,14 @@
     };
 
     self.recordResponse = function(answerId, pollId){
-      console.log(answerId);
+      console.log(pollId);
       $http.put(`${rootUrl}/answers/${answerId}`)
         .then(function(response){
           console.log(response.data);
           //after someone sends a response clear the button
           //and change it to a thank you message
-          var button = document.getElementById('pollId');
-          button.innerHTML = "<span>Thank you for your response</span>";
+          // var button = document.getElementById('pollId');
+          // button.innerHTML = "<span>Thank you for your response</span>";
         })
         .catch(function(err){
           console.log(err);
