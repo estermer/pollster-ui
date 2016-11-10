@@ -66,6 +66,16 @@
         });
     };
 
+    self.recordResponse = function(answerId){
+      $http.post(`${rootUrl}/answers/${answerId}`)
+        .then(function(response){
+          console.log(response.data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
     //this function turns the answers object into
     //and array of answers to send to the backend
     function changeAnswersToArray(answers){
