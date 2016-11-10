@@ -11,9 +11,31 @@
     <script src="js/app.js" charset="utf-8"></script>
 
   </head>
-  <body>
+  <body ng-controller="MainCtrl as main">
 
-    
+    <div id="create-form">
+      <div ng-show="!main.pollCreated">
+        <form id="new-poll" ng-submit="main.createPoll(poll)">
+          <label for="title">Poll Title: </label>
+          <input type="text" name="title" ng-model="poll.title">
+          <label for="question">What is your poll question: </label>
+          <input type="text" name="question" ng-model="poll.question">
+          <button type="submit">NEXT >></button>
+        </form>
+      </div>
+      <div ng-show="main.pollCreated">
+        <form id="new-poll" ng-submit="main.createAnswers(answers)">
+          <label for="answers">List your responses: </label><br>
+          <input type="text" name="answers" ng-model="answers.one"><br>
+          <input type="text" name="answers" ng-model="answers.two"><br>
+          <input type="text" name="answers" ng-model="answers.three"><br>
+          <input type="text" name="answers" ng-model="answers.four"><br>
+          <input type="text" name="answers" ng-model="answers.five"><br>
+          <input type="text" name="answers" ng-model="answers.six"><br>
+          <button type="submit">CREATE</button>
+        </form>
+      </div>
+    </div>
 
   </body>
 </html>

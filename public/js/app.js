@@ -33,12 +33,14 @@
     };
 
     self.createPoll = function(poll){
-      $http.post('/polls', poll)
+      console.log("CREATING A POLL <<<<<<<");
+      $http.post(`${rootUrl}/polls`, poll)
         .then(function(response){
           //make pollCreated true to then
           //show the create answers directive element
+          console.log(response.data);
           self.pollCreated = true;
-          self.newPoll = response.data.poll;
+          self.newPollId = response.data.poll.id;
         })
         .catch(function(err){
           console.log(err);
@@ -46,12 +48,16 @@
     };
 
     self.createAnswers = function(answers){
+      console.log("OBJECT <<<<< ",answers);
       //first change the answers to an array of answers
       answers = changeAnswersToArray(answers);
+      console.log('CREATING ANSWERS <<<<<<<<<');
+      console.log(answers);
 
       //then send them to the api as the array
-      $http.post(`${rootUrl}/polls/${self.newPoll.id}/answers`, {answers: answers})
+      $http.post(`${rootUrl}/polls/${self.newPollId}/answers`, {answers: answers})
         .then(function(response){
+          console.log(response.data);
           getAllPolls();
           self.pollCreated = false;
         })
@@ -64,14 +70,16 @@
     //and array of answers to send to the backend
     function changeAnswersToArray(answers){
       var array = [];
+      console.log("CREATING ARRAY");
 
-      if (answers == {} || answers == null){
+      if (answers == {} || answers == undefined){
         return "no answers to create";
       }
 
       for(var x in answers){
-        if(answers.x != null || answers.x != ""){
-          array.push(answers.x);
+        console.log(answers[x]);
+        if(answers[x] != undefined || answers[x] != ""){
+          array.push(answers[x]);
         }
       }
       return array;
