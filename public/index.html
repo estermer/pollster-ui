@@ -54,6 +54,10 @@
             <button type="submit">RECORD YOUR RESPONSE</button>
           </span>
         </form>
+        <button ng-click="main.getResults(poll.id)">SHOW RESULTS</button>
+        <div class="show-results" ng-repeat="answer in main.pollAnswers">
+          <span>{{answer.text}}: {{answer.responses}}</span><br>
+        </div>
       </div>
     </div>
 

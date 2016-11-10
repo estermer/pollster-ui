@@ -81,6 +81,17 @@
         });
     };
 
+    self.getResults = function(pollId){
+      $http.get(`${rootUrl}/polls/${pollId}`)
+        .then(function(response){
+          console.log(response.data);
+          self.pollAnswers = response.data.answers;
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
     //this function turns the answers object into
     //and array of answers to send to the backend
     function changeAnswersToArray(answers){
