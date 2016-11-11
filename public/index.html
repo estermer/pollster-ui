@@ -37,9 +37,17 @@
       </div>
     </div>
 
+    <!-- Results will be displayed here -->
+    <div class="show-results" ng-if="main.showResults" >
+      <h3>{{main.currentPollResults.title}}</h3>
+      <span ng-repeat="answer in main.pollAnswers">{{answer.text}}: {{answer.responses}}<br></span>
+      <button ng-click="main.hideResults()">HIDE RESULTS</button>
+    </div>
+
     <!-- polls will be displayed here -->
     <div id="show-polls" ng-repeat="poll in main.polls">
       <div class="poll">
+        <button class="delete" ng-click="main.deletePoll(poll.id)">X</button>
         <h3>{{poll.title}}</h3>
         <h5>{{poll.question}}</h5>
         <form ng-submit="main.recordResponse(response, poll.id)">
@@ -55,9 +63,6 @@
           </span>
         </form>
         <button ng-click="main.getResults(poll.id)">SHOW RESULTS</button>
-        <div class="show-results" ng-repeat="answer in main.pollAnswers">
-          <span>{{answer.text}}: {{answer.responses}}</span><br>
-        </div>
       </div>
     </div>
 

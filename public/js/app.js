@@ -1,25 +1,27 @@
 (function(){
   var app = angular.module('pollster', []);
 
-  app.directive('createPoll', function(){
-    return {
-      restrict: 'E',
-      templateUrl: '/templates/create-poll.html'
-    };
-  });
-
-  app.directive('createAnswer', function(){
-    return {
-      restrict: 'E',
-      templateUrl: '/templates/create-poll.html'
-    };
-  });
+  // app.directive('createPoll', function(){
+  //   return {
+  //     restrict: 'E',
+  //     templateUrl: '/templates/create-poll.html'
+  //   };
+  // });
+  //
+  // app.directive('createAnswer', function(){
+  //   return {
+  //     restrict: 'E',
+  //     templateUrl: '/templates/create-poll.html'
+  //   };
+  // });
 
   app.controller('MainCtrl', function($http){
     var rootUrl = 'http://localhost:3000';
     var self = this;
 
     self.pollCreated = false;
+    self.showResults = false;
+    self.showForm = false;
 
     var getAllPolls = function(){
       $http.get(`${rootUrl}/polls`)
@@ -30,6 +32,14 @@
         .catch(function(err){
           console.log(err);
         });
+    };
+
+    self.showHideForm = function(){
+      if(self.showForm){
+        self.showForm = false;
+      } else {
+        self.showForm = true;
+      }
     };
 
     self.createPoll = function(poll){
@@ -86,11 +96,28 @@
         .then(function(response){
           console.log(response.data);
           self.pollAnswers = response.data.answers;
+          self.showResults = true;
         })
         .catch(function(err){
           console.log(err);
         });
     };
+
+    self.hideResults = function(){
+      self.showResults = false;
+    };
+
+    self.deletePoll = function(pollId){
+      $http.delete(`${rootUrl}/polls/${pollId}`)
+        .then(function(response){
+          console.log(response.data);
+          getAllPolls();
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
 
     //this function turns the answers object into
     //and array of answers to send to the backend
