@@ -1,6 +1,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -12,4 +13,8 @@ header {
   box-shadow: 0px 1px 50px #5E5E5E;
   top:0px;
   background-color: #96281B;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Permanent Marker', cursive;
 }
