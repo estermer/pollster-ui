@@ -20,42 +20,44 @@
     </header>
 
     <main>
+      <div id="button-container">
+        <button id="show-button" ng-if="!main.showForm" ng-click="main.showHideForm()">CREATE A POLL</button>
+      </div>
       <!-- Forms will be displayed here -->
-      <div id="create-form">
-        <!-- <div id="show-button"> -->
-          <button id="show-button" ng-if="!main.showForm" ng-click="main.showHideForm()">CREATE A POLL</button>
-        <!-- </div> -->
-        <div ng-if="main.showForm">
-          <div ng-show="!main.pollCreated">
-            <form id="new-poll" ng-submit="main.createPoll(poll)">
-              <label for="title">Poll Title: </label><br>
-              <input type="text" name="title" ng-model="poll.title"><br>
-              <label for="question">What is your poll question: </label><br>
-              <input type="text" name="question" ng-model="poll.question"><br>
-              <button type="submit">NEXT >></button>
-            </form>
-          </div>
-          <div ng-show="main.pollCreated">
-            <form id="new-poll" ng-submit="main.createAnswers(answers)">
-              <label for="answers">List your responses: </label><br>
-              <input type="text" name="answers" ng-model="answers.one"><br>
-              <input type="text" name="answers" ng-model="answers.two"><br>
-              <input type="text" name="answers" ng-model="answers.three"><br>
-              <input type="text" name="answers" ng-model="answers.four"><br>
-              <input type="text" name="answers" ng-model="answers.five"><br>
-              <input type="text" name="answers" ng-model="answers.six"><br>
-              <button type="submit">CREATE</button>
-            </form>
-          </div>
+      <div ng-if="main.showForm" class="cover">
+        <div id="create-form">
+            <div ng-show="!main.pollCreated">
+              <form class="new-poll" ng-submit="main.createPoll(poll)">
+                <label for="title">Poll Title: </label><br>
+                <input type="text" name="title" ng-model="poll.title"><br>
+                <label for="question">What is your poll question: </label><br>
+                <input type="text" name="question" ng-model="poll.question"><br>
+                <button class="form-button" type="submit">NEXT >></button>
+              </form>
+            </div>
+            <div ng-show="main.pollCreated">
+              <form class="new-poll" ng-submit="main.createAnswers(answers)">
+                <label for="answers">List your responses: </label><br>
+                <input type="text" name="answers" ng-model="answers.one"><br>
+                <input type="text" name="answers" ng-model="answers.two"><br>
+                <input type="text" name="answers" ng-model="answers.three"><br>
+                <input type="text" name="answers" ng-model="answers.four"><br>
+                <input type="text" name="answers" ng-model="answers.five"><br>
+                <input type="text" name="answers" ng-model="answers.six"><br>
+                <button class="form-button" type="submit">CREATE</button>
+              </form>
+            </div>
         </div>
-
       </div>
 
+
       <!-- Results will be displayed here -->
-      <div class="show-results" ng-if="main.showResults" >
-        <h3>{{main.currentPollResults.title}}</h3>
-        <span ng-repeat="answer in main.pollAnswers">{{answer.text}}: {{answer.responses}}<br></span>
-        <button ng-click="main.hideResults()">HIDE RESULTS</button>
+      <div class="cover" ng-if="main.showResults">
+        <div id="show-results">
+          <button class="delete" ng-click="main.hideResults()">X</button>
+          <h2>{{main.currentPollResults.title}}</h2>
+          <span class="poll-results" ng-repeat="answer in main.pollAnswers">{{answer.text}}: {{answer.responses}}<br></span>
+        </div>
       </div>
 
       <!-- polls will be displayed here -->
