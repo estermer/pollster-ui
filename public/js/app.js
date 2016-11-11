@@ -70,6 +70,7 @@
           console.log(response.data);
           getAllPolls();
           self.pollCreated = false;
+          self.showHideForm();
         })
         .catch(function(err){
           console.log(err);

@@ -13,7 +13,8 @@
   </head>
   <body ng-controller="MainCtrl as main">
 
-    <div id="create-form">
+    <button ng-if="!main.showForm" ng-click="main.showHideForm()">CREATE A POLL</button>
+    <div ng-if="main.showForm" id="create-form">
       <div ng-show="!main.pollCreated">
         <form id="new-poll" ng-submit="main.createPoll(poll)">
           <label for="title">Poll Title: </label>
