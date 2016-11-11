@@ -16,7 +16,7 @@
   // });
 
   app.controller('MainCtrl', function($http){
-    var rootUrl = 'http://localhost:3000';
+    var rootUrl = 'https://stermer-pollster-api.herokuapp.com';
     var self = this;
 
     self.pollCreated = false;
