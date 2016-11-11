@@ -2,19 +2,133 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: #ecf0f1;
 }
 
 header {
   margin: 0;
-  padding: 0;
+  padding: 10px;;
   position: fixed;
   width: 100vw;
   height: 100px;
   box-shadow: 0px 1px 50px #5E5E5E;
   top:0px;
-  background-color: #96281B;
+  background-color: #34495e;
+  text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Permanent Marker', cursive;
+main {
+  display: flex;
+  flex-direction: row;
+  padding: 150px;
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Squada One', cursive;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h4 {
+  color: white;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+button {
+  border-radius: 5px;
+  border-style: none;
+  color: white;
+  -webkit-box-shadow: 0px 3px 1px 0px #999;
+  -moz-box-shadow: 0px 3px 1px 0px #999;
+  box-shadow: 0px 3px 1px 0px #999;
+  font-family: 'Squada One', cursive;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  -webkit-box-shadow: 0px 0px 0px 0px #666;
+  -moz-box-shadow: 0px 0px 0px 0px #666;
+  box-shadow: 0px 0px 0px 0px #666;
+  transform: translateY(3px);
+}
+
+#show-button {
+  margin: 0 auto;
+  text-align: center;
+  height: 50px;
+  width: 200px;
+  font-size: 30px;
+  background-color: #2ecc71;
+}
+
+#create-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 400px;
+}
+
+.poll {
+  height: 320px;
+  width: 250px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  position: relative;
+}
+
+.poll > h2, .poll > h5 {
+  text-align: center;
+}
+
+.delete {
+  background-color: #c0392b;
+  border-style: none;
+}
+
+.answers {
+  margin: 30px;
+}
+
+.results-button, .submit-button {
+  background-color: #3498db;
+  border-style: none;
+  width: 100px;
+  margin: 5px;
+  height: 27px;
+  font-size: 15px;
+  position: absolute;
+  right:    0;
+  bottom:   0;
+}
+
+.submit-button {
+  bottom: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
