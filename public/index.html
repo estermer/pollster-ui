@@ -12,6 +12,10 @@
 
   </head>
   <body ng-controller="MainCtrl as main">
+    <header>
+      <h1>POLLSTER</h1>
+      <h4>what do you prefer?</h4>
+    </header>
 
     <button ng-if="!main.showForm" ng-click="main.showHideForm()">CREATE A POLL</button>
     <div ng-if="main.showForm" id="create-form">

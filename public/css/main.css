@@ -1,0 +1,15 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100px;
+  box-shadow: 0px 1px 50px #5E5E5E;
+  top:0px;
+  background-color: #96281B;
+}
